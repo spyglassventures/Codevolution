@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import "./styles.css";
+import { use, useState } from 'react';
 
 
 const navLinks = [
@@ -17,10 +18,19 @@ export default function  Authlayout ({
     children: React.ReactNode;
   }) {
     const pathname = usePathname();
+    const [input, setInput] = useState("")
   
     
     return (
       <div>
+        <div>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+        </div>
+
         {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             
@@ -33,6 +43,7 @@ export default function  Authlayout ({
             );
             })}
         {children}
-        </div>
+      </div>
+
     );
     }

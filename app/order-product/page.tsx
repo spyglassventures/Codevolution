@@ -5,7 +5,8 @@ export default function OrderProduct() {
     const router = useRouter();
     function handleClick() {
       alert('Order placed successfully');
-      router.push("/")
+      // router.push("https://www.google.com")
+      router.push("/");
     }
     return (
         <div>
